@@ -15,6 +15,7 @@ App = {
         petTemplate.find('.pet-age').text(data[i].age);
         petTemplate.find('.pet-location').text(data[i].location);
         petTemplate.find('.btn-adopt').attr('data-id', data[i].id);
+        petTemplate.find('.btn-return').attr('data-id', data[i].id);
 
         petsRow.append(petTemplate.html());
       }
@@ -65,6 +66,8 @@ App = {
 
   bindEvents: function() {
     $(document).on('click', '.btn-adopt', App.handleAdopt);
+    //binding return pet
+    $(document).on("click", '.btn-return', App.handleReturn);
   },
 
   markAdopted: function(adopters, account) {
@@ -77,7 +80,9 @@ App = {
     }).then(function(adopters) {
       for (i = 0; i < adopters.length; i++) {
         if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
-          $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true);
+          $(".panel-pet").eq(i).find(".btn-adopt").text('Success').attr('disabled', true);
+          $(".panel-pet").eq(i).find(".btn-return").removeProp("disabled").addClass("btn-danger");
+          $(".panel-pet").eq(i).find(".adopter-address").html(adopters[i]);
         }
       }
     }).catch(function(err) {
@@ -113,7 +118,56 @@ App = {
         console.log(err.message);
       });
     });
-  }
+  },
+
+markReturned: function(adopters, account){
+	var adoptionInstance;
+
+	App.contracts.Adoption.deployed().then(function (instance) {
+	  adoptionInstance = instance;
+
+	  return adoptionInstance.getAdopters.call();
+	})
+  .then(function(adopters){
+	  for (i=0;i<adopters.length;i++){
+	    if (adopters[i]=='0x0000000000000000000000000000000000000000') {
+        $(".panel-animal").eq(i).find(".btn-adopt").text('Adopt').removeProp("disabled");
+         $(".panel-animal").eq(i).find(".btn-return").removeProp("disabled").removeClass("btn-danger");
+        $(".panel-animal").eq(i).find(".adopter-address").html('');
+    }
+	}
+  }).catch(function(err) {
+	console.log(err.message);
+});
+},
+//handleReturn
+handleReturn: function(event) {
+  event.preventDefault();
+
+  var petId=parsenInt($(event.target).data('id'));
+
+  var returningInstance;
+
+  web3.eth.getAccounts(function (error,accounts){
+      if(error) {
+      console.log(error);
+      }
+
+      var account=account[0];
+
+      App.contracts.Adoption.deployed().then(function (instance){
+              returningInstance = instance;
+
+        //Execute return as a transtion by sending account
+        return returningInstance.returnPet(petId, {from: account});
+  }).then(function(){
+          return App.markReturned();
+  }).catch(function(err) {
+    console.log(err.message);
+  });
+});
+},
+
 
 };
 
