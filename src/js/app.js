@@ -8,6 +8,14 @@ App = {
       var petsRow = $('#petsRow');
       var petTemplate = $('#petTemplate');
 
+      var breedDropdown = $("#breedFilter");
+      var breedList = [];
+      var ageDropdown = $("#ageFilter");
+      var ageList = [];
+      var locationDropdown = $("#locationFilter");
+      var locationList = [];
+
+
       for (i = 0; i < data.length; i ++) {
         petTemplate.find('.panel-title').text(data[i].name);
         petTemplate.find('img').attr('src', data[i].picture);
@@ -17,8 +25,47 @@ App = {
         petTemplate.find('.btn-adopt').attr('data-id', data[i].id);
         petTemplate.find('.btn-return').attr('data-id', data[i].id);
 
+        breedList.push(data[i].breed);
+        ageList.push(data[i].age);
+        locationList.push(data[i].location);
+
         petsRow.append(petTemplate.html());
       }
+      breedList = breedList.filter((item, i, ar) => ar.indexOf(item) === i);
+      ageList = ageList.filter((item, i, ar) => ar.indexOf(item) === i);
+      locationList = locationList.filter((item, i, ar) => ar.indexOf(item) === i);
+      breedList.forEach(function(e, i){
+        breedDropdown.append($('<option></option>').text(e)); 
+      });
+      ageList.forEach(function(e, i){
+        ageDropdown.append($('<option></option>').text(e)); 
+      });
+      locationList.forEach(function(e, i){
+        locationDropdown.append($('<option></option>').text(e)); 
+      });
+
+      //The filter for pets
+      $(document).on('click', '.btn-filter', function(){
+        var theBreed = document.getElementById("breedFilter").value;
+        var theAge = document.getElementById("ageFilter").value;
+        var theLocation = document.getElementById("locationFilter").value;
+        petsRow.empty();
+        
+        console.log(theLocation=="All")
+        for (i = 0; i < data.length; i ++) {
+          //console.log(i)
+          if ((data[i].breed==theBreed || theBreed=="All") && (data[i].age==theAge || theAge=="All") && (data[i].location==theLocation || theLocation=="All")){
+            petTemplate.find('.panel-title').text(data[i].name);
+            petTemplate.find('img').attr('src', data[i].picture);
+            petTemplate.find('.pet-breed').text(data[i].breed);
+            petTemplate.find('.pet-age').text(data[i].age);
+            petTemplate.find('.pet-location').text(data[i].location);
+            petTemplate.find('.btn-adopt').attr('data-id', data[i].id);
+
+            petsRow.append(petTemplate.html());
+          }
+        }
+      });
     });
 
     return await App.initWeb3();
@@ -172,7 +219,7 @@ handleReturn: function(event) {
 };
 
 $(function() {
-  $(window).load(function() {
+  $(document).ready(function() {
     App.init();
   });
 });
