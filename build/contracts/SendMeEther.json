@@ -48,14 +48,14 @@
     "absolutePath": "project:/contracts/SendMeEther.sol",
     "exportedSymbols": {
       "SendMeEther": [
-        165
+        173
       ]
     },
-    "id": 166,
+    "id": 174,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 138,
+        "id": 146,
         "literals": [
           "solidity",
           "^",
@@ -71,19 +71,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 165,
+        "id": 173,
         "linearizedBaseContracts": [
-          165
+          173
         ],
         "name": "SendMeEther",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 140,
+            "id": 148,
             "name": "functionCalled",
             "nodeType": "VariableDeclaration",
-            "scope": 165,
+            "scope": 173,
             "src": "61:28:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -92,7 +92,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 139,
+              "id": 147,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "61:6:2",
@@ -106,25 +106,25 @@
           },
           {
             "body": {
-              "id": 147,
+              "id": 155,
               "nodeType": "Block",
               "src": "170:42:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 145,
+                    "id": 153,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 143,
+                      "id": 151,
                       "name": "functionCalled",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 140,
+                      "referencedDeclaration": 148,
                       "src": "174:14:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -136,7 +136,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "636f6e7374727563746f72",
-                      "id": 144,
+                      "id": 152,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -157,32 +157,32 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 146,
+                  "id": 154,
                   "nodeType": "ExpressionStatement",
                   "src": "174:30:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 148,
+            "id": 156,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 141,
+              "id": 149,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "160:2:2"
             },
             "returnParameters": {
-              "id": 142,
+              "id": 150,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "170:0:2"
             },
-            "scope": 165,
+            "scope": 173,
             "src": "149:63:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -190,25 +190,25 @@
           },
           {
             "body": {
-              "id": 155,
+              "id": 163,
               "nodeType": "Block",
               "src": "327:43:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 153,
+                    "id": 161,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 151,
+                      "id": 159,
                       "name": "functionCalled",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 140,
+                      "referencedDeclaration": 148,
                       "src": "331:14:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -220,7 +220,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "726563656976654574686572",
-                      "id": 152,
+                      "id": 160,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -241,32 +241,32 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 154,
+                  "id": 162,
                   "nodeType": "ExpressionStatement",
                   "src": "331:31:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 156,
+            "id": 164,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "receiveEther",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 149,
+              "id": 157,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "307:2:2"
             },
             "returnParameters": {
-              "id": 150,
+              "id": 158,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "327:0:2"
             },
-            "scope": 165,
+            "scope": 173,
             "src": "286:84:2",
             "stateMutability": "payable",
             "superFunction": null,
@@ -274,25 +274,25 @@
           },
           {
             "body": {
-              "id": 163,
+              "id": 171,
               "nodeType": "Block",
               "src": "482:39:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 161,
+                    "id": 169,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 159,
+                      "id": 167,
                       "name": "functionCalled",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 140,
+                      "referencedDeclaration": 148,
                       "src": "486:14:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -304,7 +304,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "66616c6c6261636b",
-                      "id": 160,
+                      "id": 168,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -325,39 +325,39 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 162,
+                  "id": 170,
                   "nodeType": "ExpressionStatement",
                   "src": "486:27:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 164,
+            "id": 172,
             "implemented": true,
             "kind": "fallback",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 157,
+              "id": 165,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "462:2:2"
             },
             "returnParameters": {
-              "id": 158,
+              "id": 166,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "482:0:2"
             },
-            "scope": 165,
+            "scope": 173,
             "src": "454:67:2",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 166,
+        "scope": 174,
         "src": "27:497:2"
       }
     ],
@@ -368,7 +368,7 @@
       "absolutePath": "project:/contracts/SendMeEther.sol",
       "exportedSymbols": {
         "SendMeEther": [
-          165
+          173
         ]
       }
     },
@@ -382,7 +382,7 @@
             ".0"
           ]
         },
-        "id": 138,
+        "id": 146,
         "name": "PragmaDirective",
         "src": "0:23:2"
       },
@@ -398,17 +398,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            165
+            173
           ],
           "name": "SendMeEther",
-          "scope": 166
+          "scope": 174
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "functionCalled",
-              "scope": 165,
+              "scope": 173,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -421,12 +421,12 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 139,
+                "id": 147,
                 "name": "ElementaryTypeName",
                 "src": "61:6:2"
               }
             ],
-            "id": 140,
+            "id": 148,
             "name": "VariableDeclaration",
             "src": "61:28:2"
           },
@@ -440,7 +440,7 @@
                 null
               ],
               "name": "",
-              "scope": 165,
+              "scope": 173,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -453,7 +453,7 @@
                   ]
                 },
                 "children": [],
-                "id": 141,
+                "id": 149,
                 "name": "ParameterList",
                 "src": "160:2:2"
               },
@@ -464,7 +464,7 @@
                   ]
                 },
                 "children": [],
-                "id": 142,
+                "id": 150,
                 "name": "ParameterList",
                 "src": "170:0:2"
               },
@@ -489,11 +489,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 140,
+                              "referencedDeclaration": 148,
                               "type": "string storage ref",
                               "value": "functionCalled"
                             },
-                            "id": 143,
+                            "id": 151,
                             "name": "Identifier",
                             "src": "174:14:2"
                           },
@@ -510,27 +510,27 @@
                               "type": "literal_string \"constructor\"",
                               "value": "constructor"
                             },
-                            "id": 144,
+                            "id": 152,
                             "name": "Literal",
                             "src": "191:13:2"
                           }
                         ],
-                        "id": 145,
+                        "id": 153,
                         "name": "Assignment",
                         "src": "174:30:2"
                       }
                     ],
-                    "id": 146,
+                    "id": 154,
                     "name": "ExpressionStatement",
                     "src": "174:30:2"
                   }
                 ],
-                "id": 147,
+                "id": 155,
                 "name": "Block",
                 "src": "170:42:2"
               }
             ],
-            "id": 148,
+            "id": 156,
             "name": "FunctionDefinition",
             "src": "149:63:2"
           },
@@ -544,7 +544,7 @@
                 null
               ],
               "name": "receiveEther",
-              "scope": 165,
+              "scope": 173,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "external"
@@ -557,7 +557,7 @@
                   ]
                 },
                 "children": [],
-                "id": 149,
+                "id": 157,
                 "name": "ParameterList",
                 "src": "307:2:2"
               },
@@ -568,7 +568,7 @@
                   ]
                 },
                 "children": [],
-                "id": 150,
+                "id": 158,
                 "name": "ParameterList",
                 "src": "327:0:2"
               },
@@ -593,11 +593,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 140,
+                              "referencedDeclaration": 148,
                               "type": "string storage ref",
                               "value": "functionCalled"
                             },
-                            "id": 151,
+                            "id": 159,
                             "name": "Identifier",
                             "src": "331:14:2"
                           },
@@ -614,27 +614,27 @@
                               "type": "literal_string \"receiveEther\"",
                               "value": "receiveEther"
                             },
-                            "id": 152,
+                            "id": 160,
                             "name": "Literal",
                             "src": "348:14:2"
                           }
                         ],
-                        "id": 153,
+                        "id": 161,
                         "name": "Assignment",
                         "src": "331:31:2"
                       }
                     ],
-                    "id": 154,
+                    "id": 162,
                     "name": "ExpressionStatement",
                     "src": "331:31:2"
                   }
                 ],
-                "id": 155,
+                "id": 163,
                 "name": "Block",
                 "src": "327:43:2"
               }
             ],
-            "id": 156,
+            "id": 164,
             "name": "FunctionDefinition",
             "src": "286:84:2"
           },
@@ -648,7 +648,7 @@
                 null
               ],
               "name": "",
-              "scope": 165,
+              "scope": 173,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "external"
@@ -661,7 +661,7 @@
                   ]
                 },
                 "children": [],
-                "id": 157,
+                "id": 165,
                 "name": "ParameterList",
                 "src": "462:2:2"
               },
@@ -672,7 +672,7 @@
                   ]
                 },
                 "children": [],
-                "id": 158,
+                "id": 166,
                 "name": "ParameterList",
                 "src": "482:0:2"
               },
@@ -697,11 +697,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 140,
+                              "referencedDeclaration": 148,
                               "type": "string storage ref",
                               "value": "functionCalled"
                             },
-                            "id": 159,
+                            "id": 167,
                             "name": "Identifier",
                             "src": "486:14:2"
                           },
@@ -718,37 +718,37 @@
                               "type": "literal_string \"fallback\"",
                               "value": "fallback"
                             },
-                            "id": 160,
+                            "id": 168,
                             "name": "Literal",
                             "src": "503:10:2"
                           }
                         ],
-                        "id": 161,
+                        "id": 169,
                         "name": "Assignment",
                         "src": "486:27:2"
                       }
                     ],
-                    "id": 162,
+                    "id": 170,
                     "name": "ExpressionStatement",
                     "src": "486:27:2"
                   }
                 ],
-                "id": 163,
+                "id": 171,
                 "name": "Block",
                 "src": "482:39:2"
               }
             ],
-            "id": 164,
+            "id": 172,
             "name": "FunctionDefinition",
             "src": "454:67:2"
           }
         ],
-        "id": 165,
+        "id": 173,
         "name": "ContractDefinition",
         "src": "27:497:2"
       }
     ],
-    "id": 166,
+    "id": 174,
     "name": "SourceUnit",
     "src": "0:527:2"
   },
@@ -765,8 +765,7 @@
     }
   },
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-04-11T00:33:32.532Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-04-11T01:40:36.811Z",
   "devdoc": {
     "methods": {}
   },

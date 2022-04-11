@@ -206,7 +206,7 @@ handleReturn: function(event) {
       returningInstance = instance;
 
       // Execute adopt as a transaction by sending account
-      return returningInstance.returnPer(petId, {from: account});
+      return returningInstance.returnPet(petId, {from: account});
     }).then(function(result) {
       return App.markReturned();
     }).catch(function(err) {
