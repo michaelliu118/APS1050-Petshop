@@ -1,11 +1,9 @@
 pragma solidity ^0.5.0;
 
-
-
 contract Adoption {
 	address[16] public adopters;
 
-  event AdoptedPet(uint petId);
+  
   // Adopting a pet
   function adopt(uint petId) public returns (uint) {
     require(petId >= 0 && petId <= 15);
@@ -20,19 +18,15 @@ contract Adoption {
     return adopters;
   }
   
-  event ReturnedPet(uint petId);
 
   function returnPet(uint petId) public returns (uint) {
-      require(petId >= 0 && petId <= 15);
+    require(petId >= 0 && petId <= 15);
 
-      // If the animal has been adopted by msg.sender, the pet can be returned
-      if (adopters[petId] == msg.sender) {
-          // "Return" an pet by setting the address of it's adopter back to 0
-          adopters[petId] = address(0);
-      }
-
-      emit ReturnedPet(petId);
-
-      return petId;
+    // If the animal has been adopted by msg.sender, the pet can be returned
+    if (adopters[petId] == msg.sender) {
+      // "Return" an pet by setting the address of it's adopter back to 0
+      adopters[petId] = address(0);
     }
+    return petId;
+  }
 }
