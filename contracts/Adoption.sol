@@ -21,17 +21,18 @@ contract Adoption {
   }
   
   event ReturnedPet(uint petId);
-  //Returning a pet
-  function returnPet(uint petId) public returns(uint){
-    require(petId >=0 && petId <=15);
-    
-	//if the animal has been adopted by msg.sender, the animal can be returned
-	if (adopters[petId]==msg.sender){
-		//"Return" an animal by setting the address of it's adopter back to 0
-		adopters[petId]=address(0);
-	}
-  emit ReturnedPet(petId);
 
-	return petId;    
-  }
+  function returnPet(uint petId) public returns (uint) {
+      require(petId >= 0 && petId <= 15);
+
+      // If the animal has been adopted by msg.sender, the pet can be returned
+      if (adopters[petId] == msg.sender) {
+          // "Return" an pet by setting the address of it's adopter back to 0
+          adopters[petId] = address(0);
+      }
+
+      emit ReturnedPet(petId);
+
+      return petId;
+    }
 }

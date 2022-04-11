@@ -215,7 +215,6 @@ handleReturn: function(event) {
   });
 },
 
-
 };
 
 $(function() {
