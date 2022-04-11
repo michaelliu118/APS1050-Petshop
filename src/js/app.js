@@ -126,6 +126,7 @@ App = {
       return adoptionInstance.getAdopters.call();
     }).then(function(adopters) {
       for (i = 0; i < adopters.length; i++) {
+        
         if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
           $(".panel-pet").eq(i).find(".btn-adopt").text('Success').attr('disabled', true);
           $(".panel-pet").eq(i).find(".btn-return").removeProp("disabled").addClass("btn-danger");
@@ -168,19 +169,23 @@ App = {
   },
 
 markReturned: function(adopters, account){
+ 
 	var adoptionInstance;
 
 	App.contracts.Adoption.deployed().then(function (instance) {
 	  adoptionInstance = instance;
+    
 
 	  return adoptionInstance.getAdopters.call();
 	})
   .then(function(adopters){
+
 	  for (i=0;i<adopters.length;i++){
 	    if (adopters[i]=='0x0000000000000000000000000000000000000000') {
-        $(".panel-animal").eq(i).find(".btn-adopt").text('Adopt').removeProp("disabled");
-         $(".panel-animal").eq(i).find(".btn-return").prop("disabled", true).removeClass("btn-danger");
-        $(".panel-animal").eq(i).find(".adopter-address").html('');
+        console.log('ahahahaah3');
+        $(".panel-pet").eq(i).find(".btn-adopt").text('Adopt').removeProp("disabled");
+        $(".panel-pet").eq(i).find(".btn-return").prop("disabled", true).removeClass("btn-danger");
+        $(".panel-pet").eq(i).find(".adopter-address").html('');
     }
 	}
   }).catch(function(err) {
