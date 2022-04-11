@@ -3,7 +3,7 @@ pragma solidity ^0.5.0;
 contract Adoption {
 	address[16] public adopters;
 
-
+  event AdoptedPet(uint petId);
   // Adopting a pet
   function adopt(uint petId) public returns (uint) {
     require(petId >= 0 && petId <= 15);
@@ -18,7 +18,7 @@ contract Adoption {
     return adopters;
   }
   
-  event ReturnPet(uint petId);
+  event ReturnedPet(uint petId);
   //Returning a pet
   function returnPet(uint petId) public returns(uint){
     require(petId >=0 && petId <=15);
@@ -28,7 +28,7 @@ contract Adoption {
 		//"Return" an animal by setting the address of it's adopter back to 0
 		adopters[petId]=address(0);
 	}
-  emit ReturnPet(petId);
+  emit ReturnedPet(petId);
 
 	return petId;    
   }
