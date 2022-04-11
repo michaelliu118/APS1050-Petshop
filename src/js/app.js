@@ -179,7 +179,7 @@ markReturned: function(adopters, account){
 	  for (i=0;i<adopters.length;i++){
 	    if (adopters[i]=='0x0000000000000000000000000000000000000000') {
         $(".panel-animal").eq(i).find(".btn-adopt").text('Adopt').removeProp("disabled");
-         $(".panel-animal").eq(i).find(".btn-return").removeProp("disabled").removeClass("btn-danger");
+         $(".panel-animal").eq(i).find(".btn-return").prop("disabled", true).removeClass("btn-danger");
         $(".panel-animal").eq(i).find(".adopter-address").html('');
     }
 	}
@@ -191,28 +191,28 @@ markReturned: function(adopters, account){
 handleReturn: function(event) {
   event.preventDefault();
 
-  var petId=parsenInt($(event.target).data('id'));
+  var petId = parseInt($(event.target).data('id'));
 
   var returningInstance;
 
-  web3.eth.getAccounts(function (error,accounts){
-      if(error) {
+  web3.eth.getAccounts(function(error, accounts) {
+    if (error) {
       console.log(error);
-      }
+    }
 
-      var account=account[0];
+    var account = accounts[0];
 
-      App.contracts.Adoption.deployed().then(function (instance){
-              returningInstance = instance;
+    App.contracts.Adoption.deployed().then(function(instance) {
+      returningInstance = instance;
 
-        //Execute return as a transtion by sending account
-        return returningInstance.returnPet(petId, {from: account});
-  }).then(function(){
-          return App.markReturned();
-  }).catch(function(err) {
-    console.log(err.message);
+      // Execute adopt as a transaction by sending account
+      return returningInstance.returnPer(petId, {from: account});
+    }).then(function(result) {
+      return App.markReturned();
+    }).catch(function(err) {
+      console.log(err.message);
+    });
   });
-});
 },
 
 
