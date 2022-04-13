@@ -18,7 +18,7 @@
     <![endif]-->
 
     <style>
-    /* The alert message box */
+    /* The alert message box - Arsh*/
     .alert {
         padding: 20px;
         background-color: #3cb371;
@@ -36,15 +36,15 @@
         font-size: 20px;
         margin-bottom: 30px;
     }
-    </style> 
-    
-    
+    </style>     
+
+
   </head>
   <body>
     <div class="container">
       <header style="padding:16px 16px">
-        <h1 class="text-center text">Pet's Market</h1>
-        <p class="text-center">Choose and buy your favorite pet!</p>
+        <h1 class="text-center text">Pet Adoption Market</h1>
+        <p class="text-center">Choose and adopt your favorite pet!</p>
       <div class="row" style="text-align: center;">
         <div class="btn-group">
           <form onSubmit="DonationApp.sendDonation(); return false;" style="text-align: center;">
@@ -59,19 +59,40 @@
           <p id="accountBalance" class="text-center"></p>
           <p id="accountAddress" class="text-center"></p>
       </div>
+
+      <h>Breed:</h>
+      <select id="breedFilter" style="width:100px; height:30px; margin-left: 0px">
+        <option>All</option>
+      </select>
+
+      <h>Age:</h>
+      <select id="ageFilter" style="width:100px; height:30px">
+        <option>All</option>
+      </select>
+
+      <h>Location:</h>
+      <select id="locationFilter" style="width:150px; height:30px">
+        <option>All</option>
+      </select>
+
+      <button type="button" class="btn-filter">Pet Filter</button>
+
       <hr/>
       </div>
       </header>
 
+      </div>
+      </div>
+
+      <!-- Count Pet and Adopter Arsh -->
       <div class="alert">
-        <div>Welcome!</div>
-        <div style="font-size: 15px;">
-            You can adopt a pet here for free, but a small amout of handling fee will be applied.
-        </div>
+          <div>Welcome!</div>
+          <div style="font-size: 15px;">
+              You can adopt a pet here for free, but a small amout of handling fee will be applied.
+          </div>
       </div>
 
       <div class="noBalance" style="text-align: center; margin-bottom: 15px"></div>
-
       <div class="currUser basicInfo">Current User: N/A</div>
       <div class="currBalance basicInfo">Current balance: 0 ETH</div>
       <div class="currentPets basicInfo">The pets you have adopted: N/A</div>
@@ -83,66 +104,52 @@
         </div>
       </div>
 
-      <!-- purchase food form -->
-      <!-- <div class="container" style="width: 650px; text-align: center; margin-bottom: 20px;">
-          <div style="font-size: 20px; margin-bottom: 12px;">
-              Purchase food for your lovely pets!
-          </div>
-          <form action="">
-            <label> Amount: </label>
-            <input type="text" id="" name="" value="0">
-            <input class="btn btn-primary" type="submit" value="Buy">
-          </form>
-          <div style="font-size: 15px;">
-              Price: 1 food = 0.1 ETH
-          </div>
-      </div> -->
-
-      <!-- vote form -->
+      <!-- vote form Arsh -->
       <div class="container" style="width: 650px;">
-          <div style="font-size: 25px; margin-bottom: 12px; text-align: center">
-              Vote for the most lovely pet!
-          </div>
-          <div id="noBalanceForVote" style="font-size: 15px; color: red; margin-bottom: 20px; text-align: center; display: none;">
-              Small amout of handling fee will be applied for voting, if you don't see the vote drop down list, then it means you don't enough balance.
-          </div>
-
-          <div id="content" >
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Votes</th>
-                  </tr>
-                </thead>
-                <tbody id="candidatesResults">
-                </tbody>
-              </table>
-              <hr>
-              <form onSubmit="App.castVote(); return false;" id="voteDropList" style="display: none;">
-              <div class="form-group">
-                <label for="candidatesSelect">Select Pets</label>
-                <select class="form-control" id="candidatesSelect"></select>
-              </div>
-              <button type="submit" class="btn btn-primary">Vote</button>
-              <hr>
-            </form>
+        <div style="font-size: 25px; margin-bottom: 12px; text-align: center">
+            Vote for the most lovely pet!
         </div>
-      </div>
+        <div id="noBalanceForVote" style="font-size: 15px; color: red; margin-bottom: 20px; text-align: center; display: none;">
+            Small amout of handling fee will be applied for voting, if you don't see the vote drop down list, then it means you don't enough balance.
+        </div>
 
-      <div id="loader">
-          <p class="text-center" style="font-size: 20px; color: green;">
-              Loading...</p>
-      </div>
+        <div id="content" >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Votes</th>
+                </tr>
+              </thead>
+              <tbody id="candidatesResults">
+              </tbody>
+            </table>
+            <hr>
+            <form onSubmit="App.castVote(); return false;" id="voteDropList" style="display: none;">
+            <div class="form-group">
+              <label for="candidatesSelect">Select Pets</label>
+              <select class="form-control" id="candidatesSelect"></select>
+            </div>
+            <button type="submit" class="btn btn-primary">Vote</button>
+            <hr>
+           </form>
+       </div>
+    </div>
 
-      <div id="hasVoted" style="font-size: 20px; color: green;margin-bottom: 25px; text-align: center; display: none;">
-          You have already voted!
-      </div>
+    <div id="loader">
+        <p class="text-center" style="font-size: 20px; color: green;">
+            Loading...</p>
+    </div>
 
-      
+    <div id="hasVoted" style="font-size: 20px; color: green;margin-bottom: 25px; text-align: center; display: none;">
+        You have already voted!
+    </div>
+
+      </div>
+      </header>
       <div id="petsRow" class="row">
-          <!-- PETS LOAD HERE -->
+        <!-- PETS LOAD HERE -->
       </div>
     </div>
 
@@ -151,14 +158,16 @@
         <div class="panel panel-default panel-pet">
           <div class="panel-heading">
             <h3 class="panel-title">Scrappy</h3>
-          </div>
+          </div> 
           <div class="panel-body">
             <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
             <br/><br/>
             <strong>Breed</strong>: <span class="pet-breed">Golden Retriever</span><br/>
             <strong>Age</strong>: <span class="pet-age">3</span><br/>
             <strong>Location</strong>: <span class="pet-location">Warren, MI</span><br/><br/>
+            <strong>Adopter:</strong><br/><span class="adopter-address"></span><br/><br/>
             <button class="btn btn-default btn-adopt" type="button" data-id="0">Adopt</button>
+            <button class="btn btn-default btn-return" disabled type="button" data-id="0">Return</button>
           </div>
         </div>
       </div>
