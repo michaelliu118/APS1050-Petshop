@@ -154,8 +154,89 @@ App = {
         // Reload when a new vote is recorded
         App.markAdopted();
       });
+
+      //added by luke
+      instance.registeredEvent({}, {
+        fromBlock: 0,
+        toBlock: 'latest'
+      }).watch(function(error, event) {
+        // console.log("register triggered", event)
+        // Reload when a new register is recorded
+        App.render();
+      });
+
+
     });
   },
+
+
+
+
+
+  //Added by Luke
+  render: function() {
+    var electionInstance;
+
+    // Load account data
+    web3.eth.getAccounts(function(error, accounts) {
+      if (err === null) {
+        App.account = accounts[0];
+        $("#accountAddress").html("Address: " + account);
+        web3.eth.getBalance(accounts[0], function(error, balance) {
+          if (err === null) {
+            $("#accountBalance").html("Balance: " + web3.fromWei(balance.toNumber(), 'Ether') + " ETH");
+          }
+        })
+      }
+    })
+
+    App.contracts.Adoption.deployed().then(function(instance) {
+      electionInstance = instance;
+      return electionInstance.candidatesCount();
+    }).then(function(candidatesCount) {
+      var candArray = [];
+      for (var i = 1; i <= candidatesCount; i++) {
+      candArray.push(electionInstance.candidates(i));
+      }
+      Promise.all(candArray).then(function(values) {
+        var candidatesResults = $("#candidatesResults");
+        candidatesResults.empty();
+
+        var candidatesSelect = $('#candidatesSelect');
+        var candidateRegisterImg = $('#candidatesRegisterImg');
+        candidatesSelect.empty();
+        candidateRegisterImg.empty();
+
+        for (var i = 0; i < candidatesCount; i++) {
+        var id = values[i][0];
+        var petName = values[i][1];
+        var petBreed = values[i][2];
+        var petAge = values[i][3];
+        var petLoc = values[i][4];
+        var petImg = values[i][5];
+        var voteCount = values[i][6];
+
+        // Render candidate Result
+        var candidateTemplate = "<tr><th>" + i + "</th><td>" + petName + "</td><td>" + petBreed + "</td><td>" + petAge + "</td><td>" + petLoc + "</td><td><img src="+petImg+" alt=\"\" class=\"img-rounded img-center\" border=3 height=100 width=100></img></td><td>" + voteCount + "</td></tr>";
+        candidatesResults.append(candidateTemplate);
+
+        // Render candidate ballot option
+        var candidateOption = "<option value='" + id + "' >" + petName + "</ option>"
+        candidatesSelect.append(candidateOption);
+      }
+      $.getJSON('../images.json', function(data2) {
+        for (i = 0; i < data2.length; i ++) {
+          var option = "<option value='" + i + "' >" + data2[i].name + "</ option>"
+          candidateRegisterImg.append(option);
+        }
+      });
+    });
+
+
+
+
+
+
 
   markAdopted: function(adopters, account) {
     var adoptionInstance;
@@ -382,6 +463,26 @@ handleReturn: function(event) {
       // Wait for votes to update
       $('#voteDropList').hide();
       $("#loader").show();
+    }).catch(function(err) {
+      console.error(err);
+    });
+  }
+
+  //Added by Luke
+  castRegister: function() {
+    var regName = $('#candidatesRegisterName').val();
+    var regBreed = $('#candidatesRegisterBreed').val();
+    var regAge = $('#candidatesRegisterAge').val();
+    var regLoc = $('#candidatesRegisterLoc').val();
+    var regImgId = $('#candidatesRegisterImg').val();
+    App.contracts.Adoption.deployed().then(function(instance) {
+      $.getJSON('../images.json', function(data) {
+        return instance.register(regName, regBreed, regAge, regLoc, data[regImgId].img, { from: index.account }); //Maybe should be index.account
+      })
+    }).then(function(result) {
+      // register update
+      window.open('./thankyou.html');
+      window.close();
     }).catch(function(err) {
       console.error(err);
     });
