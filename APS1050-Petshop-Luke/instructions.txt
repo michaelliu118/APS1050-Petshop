@@ -1,0 +1,13 @@
+Requirment: 
+solidity ^0.5.0; 
+Ganache
+Metamask
+
+Follow tutorial instructions to install the required programs 
+
+Instruction to run in cmd:
+
+1. truffle compile
+2. truffle migrate --reset (Run Ganache before running this command)
+3. truffle test
+4. npm run dev
